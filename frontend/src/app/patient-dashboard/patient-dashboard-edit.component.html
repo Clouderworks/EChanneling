@@ -1,0 +1,217 @@
+<div *ngIf="loading">Loading patients...</div>
+<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div *ngIf="!loading && !error" style="max-width: 900px; margin: 0 auto;">
+    <h2 style="text-align:center; margin-bottom: 1.5rem;">Patient Dashboard</h2>
+    <div style="display:flex; gap:1rem; justify-content:flex-end; margin-bottom:1rem;">
+      <button (click)="exportPatientsCSV()" style="background:#1565c0; color:#fff; border:none; border-radius:4px; padding:0.5rem 1.5rem;">Export Patients CSV</button>
+      <button (click)="exportAnalyticsCSV()" style="background:#43a047; color:#fff; border:none; border-radius:4px; padding:0.5rem 1.5rem;">Export Analytics CSV</button>
+    </div>
+    <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+      <div style="flex: 1 1 250px; min-width: 250px; max-width: 320px;">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search by name or NHI..." style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 4px; border: 1px solid #ccc;" />
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li *ngFor="let patient of filteredPatients()" (click)="selectPatient(patient)"
+              style="padding: 0.75rem 1rem; margin-bottom: 0.5rem; background: #f8f9fa; border-radius: 6px; cursor: pointer; border: 1px solid #e0e0e0; transition: background 0.2s;"
+              [style.background]="selectedPatient?.id === patient.id ? '#e3f2fd' : '#f8f9fa'"
+              tabindex="0" title="Click to edit profile">
+            <strong>{{ patient.firstName }} {{ patient.lastName }}</strong> <span style="color:#888">({{ patient.nhiNumber }})</span>
+          </li>
+        </ul>
+      </div>
+      <div style="flex: 2 1 400px; min-width: 350px;">
+        <div *ngIf="selectedPatient" style="background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 2rem;">
+          <h3 style="margin-top:0;">Edit Patient Profile</h3>
+
+          <!-- Barcode Section -->
+
+          <div style="margin-bottom:1.5rem; display:flex; align-items:center; gap:2rem;">
+            <div>
+              <strong>Patient Barcode (ID):</strong><br>
+              <img *ngIf="selectedPatient.id" #barcodeIdImg [src]="getBarcodeUrl(selectedPatient.id)" alt="Patient Barcode" style="background:#fff; border:1px solid #eee; padding:8px; border-radius:6px; max-width:180px; max-height:180px; display:block; margin-bottom:0.5rem;" />
+              <button *ngIf="selectedPatient.id" type="button" (click)="downloadBarcode(selectedPatient.id, 'patient-id-barcode.svg')" style="margin-right:0.5rem;">Download</button>
+              <button *ngIf="selectedPatient.id" type="button" (click)="printBarcode(selectedPatient.id)" >Print</button>
+            </div>
+            <div>
+              <strong>NHI Barcode:</strong><br>
+              <img *ngIf="selectedPatient.nhiNumber" #barcodeNhiImg [src]="getBarcodeUrl(selectedPatient.nhiNumber)" alt="NHI Barcode" style="background:#fff; border:1px solid #eee; padding:8px; border-radius:6px; max-width:180px; max-height:180px; display:block; margin-bottom:0.5rem;" />
+              <button *ngIf="selectedPatient.nhiNumber" type="button" (click)="downloadBarcode(selectedPatient.nhiNumber, 'nhi-barcode.svg')" style="margin-right:0.5rem;">Download</button>
+              <button *ngIf="selectedPatient.nhiNumber" type="button" (click)="printBarcode(selectedPatient.nhiNumber)" >Print</button>
+            </div>
+          </div>
+
+          <form #editForm="ngForm" (ngSubmit)="onUpdate(editForm)">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div>
+          <label for="firstName">First Name</label>
+          <input id="firstName" name="firstName" [(ngModel)]="selectedPatient!.firstName" required style="width:100%" />
+        </div>
+        <div>
+          <label for="lastName">Last Name</label>
+          <input id="lastName" name="lastName" [(ngModel)]="selectedPatient!.lastName" required style="width:100%" />
+        </div>
+        <div>
+          <label for="dateOfBirth">Date of Birth</label>
+          <input id="dateOfBirth" name="dateOfBirth" [(ngModel)]="selectedPatient!.dateOfBirth" type="date" required style="width:100%" />
+        </div>
+        <div>
+          <label for="gender">Gender</label>
+          <input id="gender" name="gender" [(ngModel)]="selectedPatient!.gender" required style="width:100%" />
+        </div>
+        <div>
+          <label for="ethnicity">Ethnicity</label>
+          <input id="ethnicity" name="ethnicity" [(ngModel)]="selectedPatient!.ethnicity" style="width:100%" />
+        </div>
+        <div>
+          <label for="language">Language</label>
+          <input id="language" name="language" [(ngModel)]="selectedPatient!.language" style="width:100%" />
+        </div>
+        <div>
+          <label for="address">Address</label>
+          <input id="address" name="address" [(ngModel)]="selectedPatient!.address" style="width:100%" />
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" [(ngModel)]="selectedPatient!.phone" style="width:100%" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" [(ngModel)]="selectedPatient!.email" type="email" style="width:100%" />
+        </div>
+      </div>
+
+      <hr style="margin:2rem 0 1rem 0;" />
+      <h4 style="margin-bottom:0.5rem;">Family History <span title="Add family history entries such as hereditary conditions." style="cursor:help; color:#888;">&#9432;</span></h4>
+      <div *ngIf="selectedPatient!.familyHistory?.length; else noFamilyHistory">
+        <div *ngFor="let fh of selectedPatient!.familyHistory; let i = index" style="margin-bottom: 1rem; border: 1px solid #e0e0e0; border-radius:6px; padding: 0.75rem; background:#f9f9fc;">
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <div style="flex:1">
+              <label>Relation</label>
+              <input [(ngModel)]="selectedPatient!.familyHistory[i].relation" name="fh-relation-{{i}}" style="width:100%" />
+            </div>
+            <div style="flex:1">
+              <label>Condition</label>
+              <input [(ngModel)]="selectedPatient!.familyHistory[i].condition" name="fh-condition-{{i}}" style="width:100%" />
+            </div>
+            <div style="flex:2">
+              <label>Notes</label>
+              <input [(ngModel)]="selectedPatient!.familyHistory[i].notes" name="fh-notes-{{i}}" style="width:100%" />
+            </div>
+            <button type="button" (click)="selectedPatient!.familyHistory.splice(i, 1)" style="background:#ffebee; color:#b71c1c; border:none; border-radius:4px; padding:0.5rem 1rem; margin-top:1.5rem;">Remove</button>
+          </div>
+        </div>
+      </div>
+      <button type="button" (click)="selectedPatient!.familyHistory.push({relation: '', condition: '', notes: ''})" style="margin-bottom:1rem; background:#e3f2fd; color:#1565c0; border:none; border-radius:4px; padding:0.5rem 1.5rem;">Add Family History</button>
+      <ng-template #noFamilyHistory><div style="color: #888;">No family history recorded.</div></ng-template>
+
+      <hr style="margin:2rem 0 1rem 0;" />
+      <h4 style="margin-bottom:0.5rem;">Genetic Risks <span title="Add genetic risk factors such as gene mutations." style="cursor:help; color:#888;">&#9432;</span></h4>
+      <div *ngIf="selectedPatient!.geneticRisks?.length; else noGeneticRisks">
+        <div *ngFor="let gr of selectedPatient!.geneticRisks; let i = index" style="margin-bottom: 1rem; border: 1px solid #e0e0e0; border-radius:6px; padding: 0.75rem; background:#f9f9fc;">
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <div style="flex:1">
+              <label>Gene</label>
+              <input [(ngModel)]="selectedPatient!.geneticRisks[i].gene" name="gr-gene-{{i}}" style="width:100%" />
+            </div>
+            <div style="flex:1">
+              <label>Risk Level</label>
+              <input [(ngModel)]="selectedPatient!.geneticRisks[i].riskLevel" name="gr-risk-{{i}}" style="width:100%" />
+            </div>
+            <div style="flex:2">
+              <label>Notes</label>
+              <input [(ngModel)]="selectedPatient!.geneticRisks[i].notes" name="gr-notes-{{i}}" style="width:100%" />
+            </div>
+            <button type="button" (click)="selectedPatient!.geneticRisks.splice(i, 1)" style="background:#ffebee; color:#b71c1c; border:none; border-radius:4px; padding:0.5rem 1rem; margin-top:1.5rem;">Remove</button>
+          </div>
+        </div>
+      </div>
+      <button type="button" (click)="selectedPatient!.geneticRisks.push({gene: '', riskLevel: '', notes: ''})" style="margin-bottom:1rem; background:#e3f2fd; color:#1565c0; border:none; border-radius:4px; padding:0.5rem 1.5rem;">Add Genetic Risk</button>
+      <ng-template #noGeneticRisks><div style="color: #888;">No genetic risks recorded.</div></ng-template>
+
+      <hr style="margin:2rem 0 1rem 0;" />
+      <h4 style="margin-bottom:0.5rem;">Social Determinants <span title="Social, economic, and environmental factors." style="cursor:help; color:#888;">&#9432;</span></h4>
+      <div style="border: 1px solid #e0e0e0; border-radius:6px; padding: 1rem; background:#f9f9fc;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+          <div>
+            <label>Occupation</label>
+            <input [(ngModel)]="selectedPatient!.socialDeterminants.occupation" name="sd-occupation" style="width:100%" />
+          </div>
+          <div>
+            <label>Education</label>
+            <input [(ngModel)]="selectedPatient!.socialDeterminants.education" name="sd-education" style="width:100%" />
+          </div>
+          <div>
+            <label>Housing</label>
+            <input [(ngModel)]="selectedPatient!.socialDeterminants.housing" name="sd-housing" style="width:100%" />
+          </div>
+          <div>
+            <label>Income Level</label>
+            <input [(ngModel)]="selectedPatient!.socialDeterminants.incomeLevel" name="sd-income" style="width:100%" />
+          </div>
+          <div>
+            <label>Marital Status</label>
+            <input [(ngModel)]="selectedPatient!.socialDeterminants.maritalStatus" name="sd-marital" style="width:100%" />
+          </div>
+          <div>
+            <label>Notes</label>
+            <input [(ngModel)]="selectedPatient!.socialDeterminants.notes" name="sd-notes" style="width:100%" />
+          </div>
+        </div>
+      </div>
+
+      <hr style="margin:2rem 0 1rem 0;" />
+      <div style="display:flex; gap:1rem; justify-content:flex-end;">
+        <button type="submit" [disabled]="!editForm.form.valid" style="background:#1565c0; color:#fff; border:none; border-radius:4px; padding:0.75rem 2rem; font-weight:600;">Save</button>
+        <button type="button" (click)="clearSelection()" style="background:#eee; color:#333; border:none; border-radius:4px; padding:0.75rem 2rem;">Cancel</button>
+      </div>
+    </form>
+  <!-- end main dashboard/profile container -->
+ </div>
+    <div *ngIf="updateError" class="alert alert-danger">{{ updateError }}</div>
+    <div *ngIf="updateSuccess" class="alert alert-success">Profile updated successfully!</div>
+  </div>
+
+  <div style="margin-top:2rem; background:#fff; border-radius:8px; box-shadow:0 2px 8px #0001; padding:2rem;">
+    <h3 style="margin-top:0;">Dashboard Analytics</h3>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:1.5rem;">
+      <div style="background:#e3f2fd; border-radius:6px; padding:1rem;">
+        <strong>Total Patients:</strong><br>{{ patients.length }}
+      </div>
+      <div style="background:#fce4ec; border-radius:6px; padding:1rem;">
+        <ng-container *ngIf="ethnicityStats | keyvalue as ethnicArr">
+          <strong>Unique Ethnicities:</strong><br>{{ ethnicArr.length }}
+          <ul style="margin:0; padding-left:1.2em;">
+            <li *ngFor="let e of ethnicArr">{{ e.key }}: {{ e.value }}</li>
+          </ul>
+        </ng-container>
+      </div>
+      <div style="background:#e8f5e9; border-radius:6px; padding:1rem;">
+        <ng-container *ngIf="languageStats | keyvalue as langArr">
+          <strong>Languages Spoken:</strong><br>{{ langArr.length }}
+          <ul style="margin:0; padding-left:1.2em;">
+            <li *ngFor="let l of langArr">{{ l.key }}: {{ l.value }}</li>
+          </ul>
+        </ng-container>
+      </div>
+      <div style="background:#fff3e0; border-radius:6px; padding:1rem;">
+        <strong>Gender Distribution:</strong>
+        <ul style="margin:0; padding-left:1.2em;">
+          <li *ngFor="let g of genderStats | keyvalue">{{ g.key }}: {{ g.value }}</li>
+        </ul>
+      </div>
+      <div style="background:#ede7f6; border-radius:6px; padding:1rem;">
+        <strong>Age Groups:</strong>
+        <ul style="margin:0; padding-left:1.2em;">
+          <li *ngFor="let a of ageGroups | keyvalue">{{ a.key }}: {{ a.value }}</li>
+        </ul>
+      </div>
+      <div style="background:#fffde7; border-radius:6px; padding:1rem;">
+        <strong>Most Common Conditions (Family History):</strong>
+        <ul style="margin:0; padding-left:1.2em;">
+          <li *ngFor="let c of commonConditions | keyvalue">{{ c.key }}: {{ c.value }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>

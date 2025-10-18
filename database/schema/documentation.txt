@@ -1,0 +1,12 @@
+This file documents the schema structure and usage for the New Zealand Hospital Doctor Channeling System.
+
+- tables.sql: All CREATE TABLE statements
+- indexes.sql: All CREATE INDEX statements
+- views.sql: All CREATE VIEW statements
+- procedures.sql: All CREATE PROCEDURE statements
+- functions.sql: All CREATE FUNCTION statements
+- triggers.sql: All CREATE TRIGGER statements
+- seed.sql: All seed INSERT statements
+- security.sql: All Row-Level Security and security policy statements
+
+Run the files in the above order for a full database setup.

@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|d:\\project\\nzechanneling\\project\\echanneling\\backend\\config\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|solutionrelative:backend\\config\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|d:\\project\\nzechanneling\\project\\echanneling\\backend\\controllers\\userrolecontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|solutionrelative:backend\\controllers\\userrolecontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|d:\\project\\nzechanneling\\project\\echanneling\\backend\\controllers\\registrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|solutionrelative:backend\\controllers\\registrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|d:\\project\\nzechanneling\\project\\echanneling\\backend\\controllers\\nhicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|solutionrelative:backend\\controllers\\nhicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|d:\\project\\nzechanneling\\project\\echanneling\\backend\\controllers\\fhircontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|solutionrelative:backend\\controllers\\fhircontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|d:\\project\\nzechanneling\\project\\echanneling\\backend\\controllers\\barcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|solutionrelative:backend\\controllers\\barcodecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|d:\\project\\nzechanneling\\project\\echanneling\\backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|solutionrelative:backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|d:\\project\\nzechanneling\\project\\echanneling\\backend\\controllers\\auditlogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|solutionrelative:backend\\controllers\\auditlogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|d:\\project\\nzechanneling\\project\\echanneling\\backend\\models\\auditlogmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|solutionrelative:backend\\models\\auditlogmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|d:\\project\\nzechanneling\\project\\echanneling\\backend\\models\\userrolemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5CEE1AB-68C5-FCEC-EA61-653FFB609ED2}|backend\\Backend.csproj|solutionrelative:backend\\models\\userrolemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserRoleControllers.cs",
+              "DocumentMoniker": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\UserRoleControllers.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\UserRoleControllers.cs",
+              "ToolTip": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\UserRoleControllers.cs",
+              "RelativeToolTip": "backend\\Controllers\\UserRoleControllers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T12:15:37.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RegistrationController.cs",
+              "DocumentMoniker": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\RegistrationController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\RegistrationController.cs",
+              "ToolTip": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\RegistrationController.cs",
+              "RelativeToolTip": "backend\\Controllers\\RegistrationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T12:15:32.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NhiController.cs",
+              "DocumentMoniker": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\NhiController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\NhiController.cs",
+              "ToolTip": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\NhiController.cs",
+              "RelativeToolTip": "backend\\Controllers\\NhiController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T12:15:31.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FhirControllers.cs",
+              "DocumentMoniker": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\FhirControllers.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\FhirControllers.cs",
+              "ToolTip": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\FhirControllers.cs",
+              "RelativeToolTip": "backend\\Controllers\\FhirControllers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T12:15:29.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BarcodeController.cs",
+              "DocumentMoniker": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\BarcodeController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\BarcodeController.cs",
+              "ToolTip": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\BarcodeController.cs",
+              "RelativeToolTip": "backend\\Controllers\\BarcodeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T12:15:28.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuditLogController.cs",
+              "DocumentMoniker": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\AuditLogController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\AuditLogController.cs",
+              "ToolTip": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\AuditLogController.cs",
+              "RelativeToolTip": "backend\\Controllers\\AuditLogController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T12:15:23.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuditLogModels.cs",
+              "DocumentMoniker": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Models\\AuditLogModels.cs",
+              "RelativeDocumentMoniker": "backend\\Models\\AuditLogModels.cs",
+              "ToolTip": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Models\\AuditLogModels.cs",
+              "RelativeToolTip": "backend\\Models\\AuditLogModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T12:15:20.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserRoleModels.cs",
+              "DocumentMoniker": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Models\\UserRoleModels.cs",
+              "RelativeDocumentMoniker": "backend\\Models\\UserRoleModels.cs",
+              "ToolTip": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Models\\UserRoleModels.cs",
+              "RelativeToolTip": "backend\\Models\\UserRoleModels.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T12:15:09.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Config\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "backend\\Config\\appsettings.Development.json",
+              "ToolTip": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Config\\appsettings.Development.json",
+              "RelativeToolTip": "backend\\Config\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-29T12:00:40.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Project\\NZEchanneling\\Project\\EChanneling\\backend\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "backend\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T11:37:48.145Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

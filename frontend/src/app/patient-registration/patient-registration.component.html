@@ -1,0 +1,98 @@
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" novalidate>
+  <div *ngIf="submitted" class="alert alert-success">Registration successful!</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+
+  <label>NHI Number *</label>
+  <div style="display: flex; gap: 0.5rem; align-items: center;">
+    <input formControlName="nhiNumber" required />
+    <button type="button" (click)="lookupNhi()">Lookup</button>
+  </div>
+  <div *ngIf="nhiLookupResult" class="alert alert-info">
+    NHI found: {{ nhiLookupResult.firstName }} {{ nhiLookupResult.lastName }}, DOB: {{ nhiLookupResult.dateOfBirth | date:'yyyy-MM-dd' }}
+  </div>
+  <div *ngIf="nhiLookupError" class="alert alert-warning">{{ nhiLookupError }}</div>
+
+  <label>First Name *</label>
+  <input formControlName="firstName" required />
+
+  <label>Last Name *</label>
+  <input formControlName="lastName" required />
+
+  <label>Date of Birth *</label>
+  <input type="date" formControlName="dateOfBirth" required />
+
+  <label>Gender *</label>
+  <select formControlName="gender" required>
+    <option value="">Select</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <label>Ethnicity</label>
+  <input formControlName="ethnicity" />
+
+  <label>Language</label>
+  <input formControlName="language" />
+
+  <label>Address</label>
+  <input formControlName="address" />
+
+
+  <label>Phone</label>
+  <input formControlName="phone" />
+
+  <label>Email *</label>
+  <input formControlName="email" type="email" required />
+
+  <hr />
+  <h4>Family History</h4>
+  <div formArrayName="familyHistory">
+    <div *ngFor="let fh of familyHistory.controls; let i = index" [formGroupName]="i" style="margin-bottom: 1rem; border: 1px solid #ccc; padding: 0.5rem;">
+      <label>Relation *</label>
+      <input formControlName="relation" required />
+      <label>Condition *</label>
+      <input formControlName="condition" required />
+      <label>Notes</label>
+      <input formControlName="notes" />
+      <button type="button" (click)="removeFamilyHistory(i)">Remove</button>
+    </div>
+    <button type="button" (click)="addFamilyHistory()">Add Family History</button>
+  </div>
+
+  <hr />
+  <h4>Genetic Risks</h4>
+  <div formArrayName="geneticRisks">
+    <div *ngFor="let gr of geneticRisks.controls; let i = index" [formGroupName]="i" style="margin-bottom: 1rem; border: 1px solid #ccc; padding: 0.5rem;">
+      <label>Gene *</label>
+      <input formControlName="gene" required />
+      <label>Risk Level *</label>
+      <input formControlName="riskLevel" required />
+      <label>Notes</label>
+      <input formControlName="notes" />
+      <button type="button" (click)="removeGeneticRisk(i)">Remove</button>
+    </div>
+    <button type="button" (click)="addGeneticRisk()">Add Genetic Risk</button>
+  </div>
+
+  <hr />
+  <h4>Social Determinants</h4>
+  <div formGroupName="socialDeterminants" style="border: 1px solid #ccc; padding: 0.5rem;">
+    <label>Occupation</label>
+    <input formControlName="occupation" />
+    <label>Education</label>
+    <input formControlName="education" />
+    <label>Housing</label>
+    <input formControlName="housing" />
+    <label>Income Level</label>
+    <input formControlName="incomeLevel" />
+    <label>Marital Status</label>
+    <input formControlName="maritalStatus" />
+    <label>Notes</label>
+    <input formControlName="notes" />
+  </div>
+
+  <hr />
+  <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+</form>

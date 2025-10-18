@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Backend</name>
+    </assembly>
+    <members>
+        <member name="M:Backend.Controllers.BarcodeController.GetBarcode(System.String)">
+            <summary>
+            Generate a barcode (QR code) for a given patient ID or NHI.
+            </summary>
+            <param name="value">Patient ID or NHI to encode</param>
+            <returns>SVG image of the barcode</returns>
+        </member>
+        <member name="M:Backend.Controllers.PatientsController.GetGenderDistribution">
+            <summary>
+            Get gender distribution analytics. Requires Admin, Doctor, or Receptionist role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PatientsController.GetAgeGroups">
+            <summary>
+            Get age group analytics. Requires Admin, Doctor, or Receptionist role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PatientsController.GetEthnicityCounts">
+            <summary>
+            Get ethnicity counts analytics. Requires Admin, Doctor, or Receptionist role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PatientsController.GetCommonConditions">
+            <summary>
+            Get common conditions analytics. Requires Admin, Doctor, or Receptionist role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PatientsController.GetLanguageStats">
+            <summary>
+            Get language stats analytics. Requires Admin, Doctor, or Receptionist role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PatientsController.GetAll">
+            <summary>
+            Get all patients. Requires Admin, Doctor, or Receptionist role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PatientsController.GetById(System.String)">
+            <summary>
+            Get patient by ID. Requires Admin, Doctor, or Receptionist role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PatientsController.Update(System.String,Backend.Models.Patient)">
+            <summary>
+            Update patient. Requires Admin or Doctor role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PatientsController.Delete(System.String)">
+            <summary>
+            Delete patient. Requires Admin role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.DoctorsController.GetAll">
+            <summary>
+            Get all doctors. Requires Admin or Doctor role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.DoctorsController.GetById(System.String)">
+            <summary>
+            Get doctor by ID. Requires Admin or Doctor role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.DoctorsController.Create(Backend.Models.Doctor)">
+            <summary>
+            Create doctor. Requires Admin role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.DoctorsController.Update(System.String,Backend.Models.Doctor)">
+            <summary>
+            Update doctor. Requires Admin role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.DoctorsController.Delete(System.String)">
+            <summary>
+            Delete doctor. Requires Admin role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.AppointmentsController.GetAll">
+            <summary>
+            Get all appointments. Requires Admin, Doctor, or Receptionist role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.AppointmentsController.GetById(System.String)">
+            <summary>
+            Get appointment by ID. Requires Admin, Doctor, or Receptionist role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.AppointmentsController.Create(Backend.Models.Appointment)">
+            <summary>
+            Create appointment. Requires Admin, Doctor, or Receptionist role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.AppointmentsController.Update(System.String,Backend.Models.Appointment)">
+            <summary>
+            Update appointment. Requires Admin or Doctor role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.AppointmentsController.Delete(System.String)">
+            <summary>
+            Delete appointment. Requires Admin role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PrescriptionsController.GetAll">
+            <summary>
+            Get all prescriptions. Requires Admin or Doctor role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PrescriptionsController.GetById(System.String)">
+            <summary>
+            Get prescription by ID. Requires Admin or Doctor role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PrescriptionsController.Create(Backend.Models.Prescription)">
+            <summary>
+            Create prescription. Requires Admin or Doctor role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PrescriptionsController.Update(System.String,Backend.Models.Prescription)">
+            <summary>
+            Update prescription. Requires Admin or Doctor role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.PrescriptionsController.Delete(System.String)">
+            <summary>
+            Delete prescription. Requires Admin role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.MedicalRecordsController.GetAll">
+            <summary>
+            Get all medical records. Requires Admin or Doctor role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.MedicalRecordsController.GetById(System.String)">
+            <summary>
+            Get medical record by ID. Requires Admin or Doctor role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.MedicalRecordsController.Create(Backend.Models.MedicalRecord)">
+            <summary>
+            Create medical record. Requires Admin or Doctor role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.MedicalRecordsController.Update(System.String,Backend.Models.MedicalRecord)">
+            <summary>
+            Update medical record. Requires Admin or Doctor role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.MedicalRecordsController.Delete(System.String)">
+            <summary>
+            Delete medical record. Requires Admin role.
+            </summary>
+        </member>
+        <member name="M:Backend.Controllers.RegistrationController.Register(Backend.Controllers.PatientRegistrationDto)">
+            <summary>
+            Register a new patient. Requires Admin or Receptionist role.
+            </summary>
+        </member>
+    </members>
+</doc>

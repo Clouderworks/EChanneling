@@ -1,0 +1,6 @@
+{
+  "format": {
+    "include": ["**/*.cs"],
+    "exclude": ["bin/**/*", "obj/**/*"]
+  }
+}

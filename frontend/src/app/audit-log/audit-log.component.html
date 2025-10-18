@@ -1,0 +1,29 @@
+<div *ngIf="!auth.isAdmin()" class="alert alert-danger">You do not have permission to view audit logs.</div>
+<div *ngIf="auth.isAdmin()">
+  <h2>Audit Logs</h2>
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <table *ngIf="auditLogs.length" class="table table-striped table-sm mt-3">
+    <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>User</th>
+        <th>Action</th>
+        <th>Entity</th>
+        <th>Entity ID</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let log of auditLogs">
+        <td>{{ log.timestamp }}</td>
+        <td>{{ log.user }}</td>
+        <td>{{ log.action }}</td>
+        <td>{{ log.entity }}</td>
+        <td>{{ log.entityId }}</td>
+        <td>{{ log.details }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!auditLogs.length && !loading">No audit logs found.</div>
+</div>

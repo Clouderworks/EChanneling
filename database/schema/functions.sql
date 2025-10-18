@@ -1,0 +1,6 @@
+-- This file contains all CREATE FUNCTION statements for the New Zealand Hospital Doctor Channeling System.
+-- Run after tables.sql is executed.
+
+-- ...existing code...
+-- (All CREATE FUNCTION statements go here, deduplicated and cleaned)
+-- ...existing code...
